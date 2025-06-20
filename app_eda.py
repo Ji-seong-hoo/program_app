@@ -214,7 +214,7 @@ class EDA:
                 df.loc[df['지역'] == '세종', ['인구', '출생아수(명)', '사망자수(명)']].replace('-', '0')
 
             for col in ['인구', '출생아수(명)', '사망자수(명)']:
-                df[col] = df[col].astype(str).str.replace(',', '', regex=False).astype(int)
+                df[col] = df[col].astype(str).str.replace(',', '', regex=False).astype(float).astype(int)
         except Exception as e:
             st.error(f"⚠️ 데이터 전처리 중 오류 발생: {e}")
             return
